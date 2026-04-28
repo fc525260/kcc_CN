@@ -172,17 +172,17 @@ class Ui_editorDialog(object):
     # setupUi
 
     def retranslateUi(self, editorDialog):
-        editorDialog.setWindowTitle(QCoreApplication.translate("editorDialog", u"Metadata editor", None))
-        self.label_1.setText(QCoreApplication.translate("editorDialog", u"Series:", None))
-        self.label_2.setText(QCoreApplication.translate("editorDialog", u"Volume:", None))
-        self.label_3.setText(QCoreApplication.translate("editorDialog", u"Number:", None))
-        self.label_4.setText(QCoreApplication.translate("editorDialog", u"Writer:", None))
-        self.label_5.setText(QCoreApplication.translate("editorDialog", u"Penciller:", None))
-        self.label_6.setText(QCoreApplication.translate("editorDialog", u"Inker:", None))
-        self.label_7.setText(QCoreApplication.translate("editorDialog", u"Colorist:", None))
-        self.label_8.setText(QCoreApplication.translate("editorDialog", u"Title:", None))
+        editorDialog.setWindowTitle(QCoreApplication.translate("editorDialog", u"\u5143\u6570\u636e\u7f16\u8f91\u5668", None))
+        self.label_1.setText(QCoreApplication.translate("editorDialog", u"\u7cfb\u5217:", None))
+        self.label_2.setText(QCoreApplication.translate("editorDialog", u"\u5377:", None))
+        self.label_3.setText(QCoreApplication.translate("editorDialog", u"\u7f16\u53f7:", None))
+        self.label_4.setText(QCoreApplication.translate("editorDialog", u"\u4f5c\u8005:", None))
+        self.label_5.setText(QCoreApplication.translate("editorDialog", u"\u753b\u7a3f\u5e08:", None))
+        self.label_6.setText(QCoreApplication.translate("editorDialog", u"\u63cf\u7ebf\u5e08:", None))
+        self.label_7.setText(QCoreApplication.translate("editorDialog", u"\u4e0a\u8272\u5e08:", None))
+        self.label_8.setText(QCoreApplication.translate("editorDialog", u"\u6807\u9898:", None))
         self.statusLabel.setText("")
-        self.okButton.setText(QCoreApplication.translate("editorDialog", u"Save", None))
-        self.cancelButton.setText(QCoreApplication.translate("editorDialog", u"Cancel", None))
+        self.okButton.setText(QCoreApplication.translate("editorDialog", u"\u4fdd\u5b58", None))
+        self.cancelButton.setText(QCoreApplication.translate("editorDialog", u"\u53d6\u6d88", None))
     # retranslateUi
 

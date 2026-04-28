@@ -1,453 +1,173 @@
 <img src="header.jpg" alt="Header Image" width="400">
 
-# KCC
+# Kindle Comic Converter (KCC) - 中文版本
 
-[![GitHub release](https://img.shields.io/github/release/ciromattia/kcc.svg)](https://github.com/ciromattia/kcc/releases)
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ciromattia/kcc/docker-publish.yml?label=docker%20build)](https://github.com/ciromattia/kcc/pkgs/container/kcc)
-[![Github All Releases](https://img.shields.io/github/downloads/ciromattia/kcc/total.svg)](https://github.com/ciromattia/kcc/releases)
+## 简介
 
+**Kindle Comic Converter (KCC)** 是一款专为电子墨水阅读器优化黑白或彩色漫画和漫画的工具。支持 Kindle、Kobo、reMarkable 等设备。页面全屏显示，无边距，支持固定布局。
 
-**Kindle Comic Converter** optimizes black & white (or color) comics and manga for E-ink ereaders 
-like Kindle, Kobo, ReMarkable, and more.
-Pages display in fullscreen without margins, 
-with proper fixed layout support.
-Supported input formats include JPG/PNG image files in folders, archives like CBZ, or PDFs.
-Supported output formats include MOBI/AZW3, EPUB, KEPUB, CBZ, and PDF.
-KCC runs on Windows, macOS, and Linux.
+该中文版主要是为了满足自己的需求。内部所有链接皆与原作者原来的设置一致，请不要因为中文版去打扰原作者。
 
-Just drop your input files into the KCC window, hit convert, and USB drop the output files onto your device's `documents` folder!
+### 支持的输入格式：
 
-https://github.com/user-attachments/assets/da73d625-e082-482d-91a4-ae4765e96fd7
+- 包含 JPG/PNG/GIF/WebP 图片文件的文件夹
+- CBZ、ZIP 压缩包（需要 7-Zip）
+- CBR、RAR 压缩包（需要 7-Zip）
+- CB7、7Z 压缩包（需要 7-Zip）
+- PDF（仅提取 JPG 图片）
 
-**WARNING**: Kindle Scribe 2025 support may not be possible. Does not work well currently.
+### 支持的输出格式：
 
-**NEW**: PDF output is now supported for direct conversion to reMarkable devices! 
-When using a reMarkable profile (Rmk1, Rmk2, RmkPP), the format automatically defaults to PDF 
-for optimal compatibility with your device's native PDF reader.
+- MOBI/AZW3
+- EPUB
+- KEPUB
+- CBZ
+- PDF
 
-The absolute highest quality source files are print quality DRM-free PDFs from Kodansha/[Humble Bundle](https://humblebundleinc.sjv.io/xL6Zv1)/Fanatical,
-which can be directly converted by KCC.
+***
 
-Its main feature is various optional image processing steps to look good on eink screens, 
-which have different requirements than normal LCD screens.
-Combining that with downscaling to your specific device's screen resolution
-can result in filesize reductions of hundreds of MB per volume with no visible quality loss on eink.
-This can also improve battery life, page turn speed, and general performance 
-on underpowered ereaders with small memory and storage capacities.
+## 系统要求
 
-KCC avoids many common formatting issues (some of which occur [even on the Kindle Store](https://github.com/ciromattia/kcc/wiki/Kindle-Store-bad-formatting)), such as:
-1) faded black levels causing unneccessarily low contrast, which is hard to see and can cause eyestrain.
-2) unneccessary margins at the bottom of the screen
-3) Not utilizing the full 1860x2480 resolution of the 10" Kindle Scribe
-4) incorrect page turn direction for manga that's read right to left
-5) unaligned two page spreads in landscape, where pages are shifted over by 1
-6) Removing without blur the rainbow effect on color eink Kaleido 3 due to manga screentones
+**⚠️ 仅支持 Windows 系统（Windows 10 及以上）**
 
-The GUI looks like this, built in Qt6, with my most commonly used settings:
+### 必须安装：
 
-![image](https://github.com/user-attachments/assets/36ad2131-6677-4559-bd6f-314a90c27218)
+- Python 3.9 或更高版本
+- 7-Zip（可选，但能显著加快转换速度，部分高级功能需要）
 
-Simply drag and drop your files/folders into the KCC window, 
-adjust your settings (hover over each option to see details in a tooltip), 
-and hit convert to create ereader optimized files.
-You can change the default output directory by holding `Shift` while clicking the convert button.
-Then just drag and drop the generated output files onto your device's documents folder via USB.
-If you are on macOS and use a 2022+ Kindle, you may need to use Amazon USB File Manager for Mac.
+### 可选安装：
 
-YouTube tutorial (please subscribe): https://www.youtube.com/watch?v=QQ6zJcMF2Iw
+- Kindle Previewer（用于获取 KindleGen 以生成 MOBI 文件）
 
-Installation tutorial: https://www.youtube.com/watch?v=IR2Fhcm9658
+***
 
-### A word of warning
-**KCC** _is not_ [Amazon's Kindle Comic Creator](http://www.amazon.com/gp/feature.html?ie=UTF8&docId=1001103761) nor is in any way endorsed by Amazon.
-Amazon's tool is for comic publishers and involves a lot of manual effort, while **KCC** is for comic/manga readers.
-_KC2_ in no way is a replacement for **KCC** so you can be quite confident we are going to carry on developing our little monster ;-)
+## 安装与使用（从源代码运行）
 
-### Issues / new features / donations
-If you have general questions about usage, feedback etc. please [post it here](http://www.mobileread.com/forums/showthread.php?t=207461).
-If you have some **technical** problems using KCC please [file an issue here](https://github.com/ciromattia/kcc/issues/new).
-If you can fix an open issue, fork & make a pull request.
+### 方法一：使用启动脚本（推荐）
 
-If you find **KCC** valuable you can consider donating to the authors:
-- Ciro Mattia Gonano (founder, active 2012-2014):
+1. 确保已安装 Python 3.9+
+2. 双击运行 `启动.bat`
+3. 首次运行时会自动创建虚拟环境并安装所有依赖
+4. 后续运行会直接启动程序
 
-  [![Donate PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=D8WNYNPBGDAS2)
+### 方法二：手动运行
 
-- Paweł Jastrzębski (active 2013-2019):
+#### 首次设置：
 
-  [![Donate PayPal](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YTTJ4LK2JDHPS)
-  [![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-green.svg)](https://jastrzeb.ski/donate/)
-
-- Alex Xu (active 2023-Present)
-
-  [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q41BW8HS)
-
-## Commissions
-
-This section is subject to change:
-
-Email (for commisions and inquiries): `kindle.comic.converter` gmail
-
-
-## Sponsors
-
-- Free code signing on Windows provided by [SignPath.io](https://about.signpath.io/), certificate by [SignPath Foundation](https://signpath.org/)
-
-## DOWNLOADS
-
-- **https://github.com/ciromattia/kcc/releases**
-
-Click on **Assets** of the latest release.
-
-You probably want either
-- `KCC_*.*.*.exe` (Windows)
-- `kcc_macos_arm_*.*.*.dmg` (recent Mac with Apple Silicon M1 chip or later)
-- `kcc_macos_i386_*.*.*.dmg` (older Mac with Intel chip macOS 14+)
-
-There are also legacy macOS 10.14+ and Windows 7 experimental versions available.
-
-The `c2e` and `c2p` versions are command line tools for power users.
-
-On macOS, if you get a `can't be opened` error, follow: https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac
-
-For flatpak, Docker, and AppImage versions, refer to the wiki: https://github.com/ciromattia/kcc/wiki/Installation
-
-## FAQ
-- Should I use Calibre?
-  - No. Calibre doesn't properly support fixed layout EPUB/MOBI, so modifying KCC output (even just metadata!) in Calibre can break the formatting.
-    Additionally, it will break page numbers.
-    Viewing KCC output in Calibre will also not work properly.
-    Direct USB dropping is reccomended.
-- Blank pages?
-  - May happen when [using PNG with Kindle Scribe](https://github.com/ciromattia/kcc/issues/665) or [any format with a Kindle Colorsoft](https://github.com/ciromattia/kcc/issues/768). Solve by using JPG with Kindle Scribe or buying a Kobo Colour. Happens more often when turning pages really fast. You can try PDF output.
-    Going back a few pages and exiting and re-entering book should fix it temporarily.
-- What output format should I use?
-  - MOBI for Kindles. CBZ for Kindle DX. CBZ for Koreader. KEPUB for Kobo. PDF for ReMarkable or Kindle Scribe 2025.
-- All options have additional information in tooltips if you hover over the option.
-- To get the converted book onto your Kindle/Kobo, just drag and drop the mobi/kepub into the documents folder on your Kindle/Kobo via USB
-- Kindle panel view not working?
-  - Virtual panel view is enabled in Aa menu on your Kindle, not in KCC as of 7.4
-- Right to left mode not working?
-  - RTL mode only affects splitting order for CBZ output. Your cbz reader itself sets the page turn direction.
-- Colors inverted?
-  - Disable Kindle dark mode
-- Cannot connect Kindle Scribe or 2024+ Kindle to macOS
-  - Use official MTP [Amazon USB File Transfer app](https://www.amazon.com/gp/help/customer/display.html/ref=hp_Connect_USB_MTP?nodeId=TCUBEdEkbIhK07ysFu)
-    (no login required). Works much better than previously recommended Android File Transfer. Cannot run simutaneously with other transfer apps.
-- How to make AZW3 instead of MOBI?
-  - The `.mobi` file generated by KCC is a dual filetype, it's both MOBI and AZW3. The file extension is `.mobi` for compatibility reasons.
-- Huge margins / slow page turns?
-  - You likely modified the file during transfer using a 3rd party app. Try simply dragging and dropping the final mobi/kepub file into the Kindle documents folder via USB.
-
-## PREREQUISITES
-
-You'll need to install various tools to access important but optional features. Close and re-open KCC to get KCC to detect them.
-
-### KindleGen
-
-On Windows and macOS, install [Kindle Previewer](https://www.amazon.com/Kindle-Previewer/b?ie=UTF8&node=21381691011) and `kindlegen` will be autodetected from it.
-
-If you have issues detecting it, get stuck on the MOBI conversion step, or use Linux AppImage or Flatpak, refer to the wiki: https://github.com/ciromattia/kcc/wiki/Installation#kindlegen
-
-### 7-Zip
-
-This is optional but will make conversions much faster.
-
-This is required for certain files and advanced features. 
-
-KCC will ask you to install if needed.
-
-Refer to the wiki to install: https://github.com/ciromattia/kcc/wiki/Installation#7-zip
-
-## INPUT FORMATS
-**KCC** can understand and convert, at the moment, the following input types:
-- Folders containing: PNG, JPG, GIF or WebP files
-- CBZ, ZIP *(With `7z` executable)*
-- CBR, RAR *(With `7z` executable)*
-- CB7, 7Z *(With `7z` executable)*
-- PDF *(Only extracting JPG images)*
-
-## USAGE
-
-Should be pretty self-explanatory. All options have detailed information in tooltips.
-After completed conversion, you should find ready file alongside the original input file (same directory).
-
-Please check [our wiki](https://github.com/ciromattia/kcc/wiki/) for more details.
-
-CLI version of **KCC** is intended for power users. It allows using options that might not be compatible and decrease the quality of output.
-CLI version has reduced dependencies, on Debian based distributions this commands should install all needed dependencies:
-```
-sudo apt-get install python3 p7zip-full python3-pil python3-psutil python3-slugify
-```
-
-### Profiles:
-
-```
-        'K1': ("Kindle 1", (600, 670), Palette4, 1.0),
-        'K2': ("Kindle 2", (600, 670), Palette15, 1.0),
-        'K11': ("Kindle 11", (1072, 1448), Palette16, 1.0),
-        'K34': ("Kindle Keyboard/Touch", (600, 800), Palette16, 1.0),
-        'K57': ("Kindle 5/7", (600, 800), Palette16, 1.0),
-        'K810': ("Kindle 8/10", (600, 800), Palette16, 1.0),
-        'KDX': ("Kindle DX/DXG", (824, 1000), Palette16, 1.0),
-        'KPW': ("Kindle Paperwhite 1/2", (758, 1024), Palette16, 1.0),
-        'KV': ("Kindle Voyage", (1072, 1448), Palette16, 1.0),
-        'KPW34': ("Kindle Paperwhite 3/4", (1072, 1448), Palette16, 1.0),
-        'KPW5': ("Kindle Paperwhite 5/Signature Edition", (1236, 1648), Palette16, 1.0),
-        'KPW6': ("Kindle Paperwhite 6", (1272, 1696), Palette16, 1.0),
-        'KO': ("Kindle Oasis 2/3", (1264, 1680), Palette16, 1.0),
-        'KCS': ("Kindle Colorsoft", (1272, 1696), Palette16, 1.0),
-        'KS1860': ("Kindle 1860", (1860, 1920), Palette16, 1.0),
-        'KS1920': ("Kindle 1920", (1920, 1920), Palette16, 1.0),
-        'KS': ("Kindle Scribe 1/2", (1860, 2480), Palette16, 1.0),
-        'KS3': ("Kindle Scribe 3", (1986, 2648), Palette16, 1.0),
-        'KSCS': ("Kindle Scribe Colorsoft", (1986, 2648), Palette16, 1.0),
-        'KoMT': ("Kobo Mini/Touch", (600, 800), Palette16, 1.0),
-        'KoG': ("Kobo Glo", (768, 1024), Palette16, 1.0),
-        'KoGHD': ("Kobo Glo HD", (1072, 1448), Palette16, 1.0),
-        'KoA': ("Kobo Aura", (758, 1024), Palette16, 1.0),
-        'KoAHD': ("Kobo Aura HD", (1080, 1440), Palette16, 1.0),
-        'KoAH2O': ("Kobo Aura H2O", (1080, 1430), Palette16, 1.0),
-        'KoAO': ("Kobo Aura ONE", (1404, 1872), Palette16, 1.0),
-        'KoN': ("Kobo Nia", (758, 1024), Palette16, 1.0),
-        'KoC': ("Kobo Clara HD/Kobo Clara 2E", (1072, 1448), Palette16, 1.0),
-        'KoCC': ("Kobo Clara Colour", (1072, 1448), Palette16, 1.0),
-        'KoL': ("Kobo Libra H2O/Kobo Libra 2", (1264, 1680), Palette16, 1.0),
-        'KoLC': ("Kobo Libra Colour", (1264, 1680), Palette16, 1.0),
-        'KoF': ("Kobo Forma", (1440, 1920), Palette16, 1.0),
-        'KoS': ("Kobo Sage", (1440, 1920), Palette16, 1.0),
-        'KoE': ("Kobo Elipsa", (1404, 1872), Palette16, 1.0),
-        'Rmk1': ("reMarkable 1", (1404, 1872), Palette16, 1.0),
-        'Rmk2': ("reMarkable 2", (1404, 1872), Palette16, 1.0),
-        'RmkPP': ("reMarkable Paper Pro", (1620, 2160), Palette16, 1.0),
-        'RmkPPMove': ("reMarkable Paper Pro Move", (954, 1696), Palette16, 1.0),
-        'OTHER': ("Other", (0, 0), Palette16, 1.0),
-```
-
-### Standalone `kcc-c2e.py` usage:
-
-```
-usage: kcc-c2e [options] [input]
-
-MANDATORY:
-  input                 Full path to comic folder or file(s) to be processed.
-
-MAIN:
-  -p PROFILE, --profile PROFILE
-                        Device profile (Available options: K1, K2, K34, K578, KDX, KPW, KPW5, KV, KO, K11, KS, KoMT, KoG, KoGHD, KoA, KoAHD, KoAH2O, KoAO, KoN, KoC, KoCC, KoL, KoLC, KoF, KoS, KoE)
-                        [Default=KV]
-  -m, --manga-style     Manga style (right-to-left reading and splitting)
-  -q, --hq              Try to increase the quality of magnification
-  -2, --two-panel       Display two not four panels in Panel View mode
-  -w, --webtoon         Webtoon processing mode
-  --ts TARGETSIZE, --targetsize TARGETSIZE
-                        the maximal size of output file in MB. [Default=100MB for webtoon and 400MB for others]
-
-PROCESSING:
-  -n, --noprocessing    Do not modify image and ignore any profile or processing option
-  --pdfextract          Use legacy PDF image extraction method from KCC 8 and earlier.
-  --pdfwidth            Render vector PDFs based on device width instead of height.
-  -u, --upscale         Resize images smaller than device's resolution
-  -s, --stretch         Stretch images to device's resolution
-  -r SPLITTER, --splitter SPLITTER
-                        Double page parsing mode. 0: Split 1: Rotate 2: Both [Default=0]
-  -g GAMMA, --gamma GAMMA
-                        Apply gamma correction to linearize the image [Default=Auto]
-  --autolevel           Set most common dark pixel value to be black point for leveling.
-  --noautocontrast      Disable autocontrast
-  --colorautocontrast   Force autocontrast for all pages. Skipped when near blacks and whites don't exist
-  -c CROPPING, --cropping CROPPING
-                        Set cropping mode. 0: Disabled 1: Margins 2: Margins + page numbers [Default=2]
-  --cp CROPPINGP, --croppingpower CROPPINGP
-                        Set cropping power [Default=1.0]
-  --preservemargin      After calculating crop, "back up" a specified percentage amount [Default=0]
-  --cm CROPPINGM, --croppingminimum CROPPINGM
-                        Set cropping minimum area ratio [Default=0.0]
-  --ipc INTERPANELCROP, --interpanelcrop INTERPANELCROP
-                        Crop empty sections. 0: Disabled 1: Horizontally 2: Both [Default=0]
-  --blackborders        Disable autodetection and force black borders
-  --whiteborders        Disable autodetection and force white borders
-  --nosmartcovercrop    Disable attempt to crop main cover from wide image
-  --coverfill           Center-crop only the cover to fill target device screen
-  --forcecolor          Don't convert images to grayscale
-  --forcepng            Create PNG files instead JPEG for black and white images
-  --webp                Replace JPG with lossy WEBP and PNG with lossless WEBP
-  --force-png-rgb       Force color images to be saved as PNG
-  --pnglegacy           Use a more compatible 8 bit PNG instead of 4 bit.
-  --noquantize          Don't quantize PNG images to 16 colors
-  --mozjpeg             Create JPEG files using mozJpeg
-  --jpeg-quality        The JPEG quality, on a scale from 0 (worst) to 95 (best). Default 85 for most devices.
-  --maximizestrips      Turn 1x4 strips to 2x2 strips
-  -d, --delete          Delete source file(s) or a directory. It's not recoverable.
-  --tempdir             Create temporary files directory on source file drive.
-
-OUTPUT SETTINGS:
-  -o OUTPUT, --output OUTPUT
-                        Output generated file to specified directory or file
-  -t TITLE, --title TITLE
-                        Comic title [Default=filename or directory name]
-  --metadatatitle       Write title using ComicInfo.xml or other embedded metadata. 0: Don't use Title from metadata 1: Combine Title with default schema 2: Use Title only [Default=0]
-  -a AUTHOR, --author AUTHOR
-                        Author name [Default=KCC]
-  -f FORMAT, --format FORMAT
-                        Output format (Available options: Auto, MOBI, EPUB, CBZ, PDF, KFX, MOBI+EPUB) [Default=Auto]
-  --nokepub             If format is EPUB, output file with '.epub' extension rather than '.kepub.epub'
-  -b BATCHSPLIT, --batchsplit BATCHSPLIT
-                        Split output into multiple files. 0: Don't split 1: Automatic mode 2: Consider every subdirectory as separate volume [Default=0]
-  --spreadshift         Shift first page to opposite side in landscape for two page spread alignment
-  --norotate            Do not rotate double page spreads in spread splitter option.
-  --rotateright         Rotate double page spreads in opposite direction.
-  --rotatefirst         Put rotated spread first in spread splitter option.
-  --filefusion          Combines all input files into a single file.
-  --eraserainbow       Erase rainbow effect on color eink screen by attenuating interfering frequencies
-
-CUSTOM PROFILE:
-  --customwidth CUSTOMWIDTH
-                        Replace screen width provided by device profile
-  --customheight CUSTOMHEIGHT
-                        Replace screen height provided by device profile
-
-OTHER:
-  -h, --help            Show this help message and exit
-
-```
-
-### Standalone `kcc-c2p.py` usage:
-
-```
-usage: kcc-c2p [options] [input]
-
-MANDATORY:
-  input                 Full path to comic folder(s) to be processed. Separate multiple inputs with spaces.
-
-MAIN:
-  -y HEIGHT, --height HEIGHT
-                        Height of the target device screen
-  -i, --in-place        Overwrite source directory
-  -m, --merge           Combine every directory into a single image before splitting
-
-OTHER:
-  -d, --debug           Create debug file for every split image
-  -h, --help            Show this help message and exit
-```
-
-## INSTALL FROM SOURCE
-
-This section is for developers who want to contribute to KCC or power users who want to run the latest code without waiting for an official release.
-
-Easiest to use [GitHub Desktop](https://desktop.github.com) to clone your fork of the KCC repo. From GitHub Desktop, click on `Repository` in the toolbar, then `Command Prompt` (Windows)/`Terminal` (Mac) to open a window in the KCC repo.
-
-Depending on your system [Python](https://www.python.org) may be called either `python` or `python3`. We use virtual environments (venv) to manage dependencies.
-
-If you want to edit the code, a good code editor is [VS Code](https://code.visualstudio.com).
-
-If you want to edit the `.ui` files, use `pyside6-designer` which is included in the `pip install pyside6`.
-If new objects have been added, verify that correct tab order has been applied by using [Tab Order Editing Mode](https://doc.qt.io/qt-6/designer-tab-order.html).
-Then use the `gen_ui_files` scripts to autogenerate the python UI.
-
-An example PR adding a new checkbox is here: https://github.com/ciromattia/kcc/pull/785
-
-video of adding a new checkbox: https://youtu.be/g3I8DU74C7g
-
-Do not use `git merge` to merge master from upstream, 
-use the "Sync fork" button on your fork on GitHub in your branch 
-to avoid weird looking merges in pull requests.
-
-When making changes, be aware of how your change might affect file splitting/chunking
-or chapter alignment.
-
-### Windows install from source
-
-One time setup and running for the first time:
-```
+```bash
 python -m venv venv
 venv\Scripts\activate.bat
 pip install -r requirements.txt
 python kcc.py
 ```
 
-Every time you close Command Prompt, you will need to re-activate the virtual environment and re-run:
+#### 后续每次运行：
 
-```
+```bash
 venv\Scripts\activate.bat
 python kcc.py
 ```
 
-You can build a `.exe` of KCC like the downloads we offer with
+***
 
-```
-python setup.py build_binary
-```
+## 使用说明
 
-### macOS install from source
+### 基本使用：
 
-If the system installed Python gives you issues, please install the latest Python from either brew or the official website.
+1. 将输入文件或文件夹拖放到 KCC 窗口
+2. 调整设置（悬停在每个选项上可查看详细说明）
+3. 点击「转换」按钮
+4. 通过 USB 将生成的文件放到设备的 `documents` 文件夹
 
-One time setup and running for the first time:
-```
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python kcc.py
-```
+### 高级技巧：
 
-Every time you close Terminal, you will need to reactivate the virtual environment and re-run:
+- 按住 `Shift` 点击「转换」按钮可以更改默认输出目录
+- 使用元数据编辑器（点击「元数据编辑器」按钮）可以编辑书籍信息
+- 漫画模式适合从右到左阅读的漫画
+- 条漫模式适合竖向阅读的条漫（以韩漫居多）
 
-```
-source venv/bin/activate
-python kcc.py
-```
+***
 
-You can build a `.app` of KCC like the downloads we offer with
+## 设备配置文件
 
-```
-python setup.py build_binary
-```
+| 代码    | 设备                                    | 分辨率       |
+| ----- | ------------------------------------- | --------- |
+| K11   | Kindle 11                             | 1072x1448 |
+| KPW5  | Kindle Paperwhite 5/Signature Edition | 1236x1648 |
+| KPW6  | Kindle Paperwhite 6                   | 1272x1696 |
+| KO    | Kindle Oasis 2/3                      | 1264x1680 |
+| KCS   | Kindle Colorsoft                      | 1272x1696 |
+| KS    | Kindle Scribe 1/2                     | 1860x2480 |
+| KS3   | Kindle Scribe 3                       | 1986x2648 |
+| KoC   | Kobo Clara HD/Kobo Clara 2E           | 1072x1448 |
+| KoL   | Kobo Libra H2O/Kobo Libra 2           | 1264x1680 |
+| KoS   | Kobo Sage                             | 1440x1920 |
+| Rmk1  | reMarkable 1                          | 1404x1872 |
+| Rmk2  | reMarkable 2                          | 1404x1872 |
+| RmkPP | reMarkable Paper Pro                  | 1620x2160 |
 
-## CREDITS
-**KCC** is made by
+***
 
-- [Ciro Mattia Gonano](http://github.com/ciromattia)
-- [Paweł Jastrzębski](http://github.com/AcidWeb)
-- [Darodi](http://github.com/darodi)
-- [Alex Xu](http://github.com/axu2)
+## 常见问题
 
-This script born as a cross-platform alternative to `KindleComicParser` by **Dc5e** (published [here](http://www.mobileread.com/forums/showthread.php?t=192783)).
+### Q: 可以使用 Calibre 吗？
 
-The app relies and includes the following scripts:
+A: 不建议。Calibre 不完全支持固定布局的 EPUB/MOBI，修改 KCC 输出文件会破坏格式，也会破坏页码。建议直接通过 USB 传输到设备。
 
- - `DualMetaFix` script by **K. Hendricks**. Released with GPL-3 License.
- - `image.py` class from **Alex Yatskov**'s [Mangle](https://github.com/FooSoft/mangle/) with subsequent [proDOOMman](https://github.com/proDOOMman/Mangle)'s and [Birua](https://github.com/Birua/Mangle)'s patches.
- - Icon is by **Nikolay Verin** ([http://ncrow.deviantart.com/](http://ncrow.deviantart.com/)) and released under [CC BY-NC-SA 3.0](http://creativecommons.org/licenses/by-nc-sa/3.0/) License.
+### Q: 应该使用什么输出格式？
 
-## SAMPLE FILES CREATED BY KCC
+A: Kindle 用 MOBI，Kobo 用 KEPUB，reMarkable 用 PDF，Koreader 用 CBZ。
 
-https://www.mediafire.com/folder/ixh40veo6hrc5/kcc_samples
+### Q: 如何将转换好的书放到设备上？
 
-Older links (dead):
+A: 直接通过 USB 将 mobi/kepub 文件拖放到 Kindle/Kobo 的 documents 文件夹。
 
+### Q: 有空白页面？
 
-* [Kindle Oasis 2 / 3](http://kcc.iosphe.re/Samples/Ubunchu!-KO.mobi)
-* [Kindle Paperwhite 3 / 4 / Voyage / Oasis](http://kcc.iosphe.re/Samples/Ubunchu!-KV.mobi)
-* [Kindle Paperwhite 1 / 2](http://kcc.iosphe.re/Samples/Ubunchu!-KPW.mobi)
-* [Kindle](http://kcc.iosphe.re/Samples/Ubunchu!-K578.mobi)
-* [Kobo Aura](http://kcc.iosphe.re/Samples/Ubunchu-KoA.kepub.epub)
-* [Kobo Aura HD](http://kcc.iosphe.re/Samples/Ubunchu-KoAHD.kepub.epub)
-* [Kobo Aura H2O](http://kcc.iosphe.re/Samples/Ubunchu-KoAH2O.kepub.epub)
-* [Kobo Aura ONE](http://kcc.iosphe.re/Samples/Ubunchu-KoAO.kepub.epub)
-* [Kobo Forma](http://kcc.iosphe.re/Samples/Ubunchu-KoF.kepub.epub)
+A: 可能是在 Kindle Scribe 上使用 PNG 导致的，尝试使用 JPG。后退几页再重新进入可临时修复。
 
-## PRIVACY
-**KCC** is initiating internet connections in two cases:
-* During startup - Version check and announcement check.
-* When error occurs - Automatic reporting on Windows and macOS.
+### Q: Kindle 面板视图不工作？
 
-## KNOWN ISSUES
-Please check [wiki page](https://github.com/ciromattia/kcc/wiki/Known-issues).
+A: 虚拟面板视图在 Kindle 的 Aa 菜单中启用，而不是在 KCC 中。
 
-## COPYRIGHT
-Copyright (c) 2012-2025 Ciro Mattia Gonano, Paweł Jastrzębski, Darodi and Alex Xu.
-**KCC** is released under ISC LICENSE; see [LICENSE.txt](./LICENSE.txt) for further details.
+### Q: 颜色反转？
 
-## Verification
-Impact-Site-Verification: ffe48fc7-4f0c-40fd-bd2e-59f4d7205180
+A: 关闭 Kindle 的深色模式。
+
+***
+
+## 关于这个版本的修改
+
+### 主要修改：
+
+1. ✅ **完整中文本地化** - 所有界面文本已翻译为中文，若有遗漏无伤大雅，
+2. ✅ **禁用 GitHub API** - 完全离线运行，不进行版本检查和公告获取
+3. ✅ **Windows 专用** - 已删除 Linux/macOS /win7相关文件，仅保留 Windows 版本（win7除外）
+4. ✅ **启动脚本** - 提供 `启动.bat` 一键启动，自动管理虚拟环境，不将依赖安装到系统中，删除整个文件夹即可同时将安装的所有依赖一并删除。
+5. ✅删除PyInstaller 打包支持
+
+### 保留的功能：
+
+- 核心漫画转换功能
+- 元数据编辑器
+- 所有设备配置文件
+- 所有图像处理选项
+
+***
+
+## 版权与致谢
+
+**KCC** 由以下作者开发：
+
+- Ciro Mattia Gonano
+- Paweł Jastrzębski
+- Darodi
+- Alex Xu
+
+**KCC** 根据 ISC 许可证发布，详情请参阅 [LICENSE.txt](./LICENSE.txt)。
+
+***
+
+## 声明
+
+**KCC** 不是亚马逊的 Kindle Comic Creator，也未得到亚马逊的任何认可。亚马逊的工具是为漫画出版商设计的，需要大量手动工作，而 **KCC** 是为漫画/漫画读者设计的。

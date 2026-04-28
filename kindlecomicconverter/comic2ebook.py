@@ -18,7 +18,6 @@
 # PERFORMANCE OF THIS SOFTWARE.
 #
 
-from collections import Counter
 import os
 import pathlib
 import re
@@ -44,7 +43,7 @@ from psutil import virtual_memory, disk_usage
 from html import escape as hescape
 import pymupdf
 
-from .shared import IMAGE_TYPES, getImageFileName, walkSort, walkLevel, sanitizeTrace, subprocess_run, dot_clean, get_contain_resolution
+from .shared import IMAGE_TYPES, getImageFileName, walkSort, walkLevel, sanitizeTrace, subprocess_run, dot_clean
 from .comicarchive import SEVENZIP, available_archive_tools
 from . import comic2panel
 from . import image
@@ -325,19 +324,8 @@ def buildOPF(dstdir, title, filelist, originalpath, cover=None):
         f.write("<meta name=\"cover\" content=\"cover\"/>\n")
     if options.iskindle and options.profile != 'Custom':
         f.writelines(["<meta name=\"fixed-layout\" content=\"true\"/>\n",
-                      ])
-        if not options.kfx_resolution:
-            f.writelines([
-                        "<meta name=\"original-resolution\" content=\"",
-                        str(deviceres[0]) + "x" + str(deviceres[1]) + "\"/>\n",
-            ])
-        else:
-            x, y = options.kfx_resolution
-            f.writelines([
-                        "<meta name=\"original-resolution\" content=\"",
-                        str(x) + "x" + str(y) + "\"/>\n",
-            ])
-        f.writelines([
+                      "<meta name=\"original-resolution\" content=\"",
+                      str(deviceres[0]) + "x" + str(deviceres[1]) + "\"/>\n",
                       "<meta name=\"book-type\" content=\"comic\"/>\n",
                       "<meta name=\"primary-writing-mode\" content=\"" + writingmode + "\"/>\n",
                       "<meta name=\"zero-gutter\" content=\"true\"/>\n",
@@ -885,18 +873,14 @@ def mupdf_pdf_process_pages_parallel(filename, output_dir, target_width, target_
 
 def getWorkFolder(afile, workdir=None):
     if not workdir:
+        workdir = mkdtemp('', 'KCC-')
         if options.tempdir:
             workdir = mkdtemp('', 'KCC-', os.path.dirname(afile))
-        else:
-            workdir = mkdtemp('', 'KCC-')
         fullPath = os.path.join(workdir, 'OEBPS', 'Images')
     else:
         fullPath = workdir
-    check_path = gettempdir()
-    if options.tempdir:
-        check_path = os.path.dirname(afile)
     if os.path.isdir(afile):
-        if disk_usage(check_path)[2] < getDirectorySize(afile) * 2.5:
+        if disk_usage(gettempdir())[2] < getDirectorySize(afile) * 2.5:
             raise UserWarning("Not enough disk space to perform conversion.")
         try:
             copytree(afile, fullPath)
@@ -906,7 +890,7 @@ def getWorkFolder(afile, workdir=None):
             rmtree(workdir, True)
             raise UserWarning("Failed to prepare a workspace.")
     elif os.path.isfile(afile):
-        if disk_usage(check_path)[2]< os.path.getsize(afile) * 2.5:
+        if disk_usage(gettempdir())[2] < os.path.getsize(afile) * 2.5:
             raise UserWarning("Not enough disk space to perform conversion.")
         if afile.lower().endswith('.pdf'):
             if not os.path.exists(fullPath):
@@ -1482,15 +1466,6 @@ def checkOptions(options):
     options.isKobo = False
     options.bordersColor = None
     options.keep_epub = False
-
-    if options.profile in image.ProfileData.ProfilesKindle.keys():
-        options.iskindle = True
-    else:
-        options.isKobo = True
-
-    if not options.iskindle and ('MOBI' in options.format or 'EPUB-200MB' in options.format or 'KFX' in options.format):
-        raise UserWarning('MOBI/Send to Kindle not supported for non-Kindle profiles')
-
     if options.format == 'PDF-200MB':
         options.targetsize = 195
         options.format = 'PDF'
@@ -1522,7 +1497,10 @@ def checkOptions(options):
             options.format = 'PDF'
         else:
             options.format = 'EPUB'
-
+    if options.profile in image.ProfileData.ProfilesKindle.keys():
+        options.iskindle = True
+    else:
+        options.isKobo = True
     if options.white_borders:
         options.bordersColor = 'white'
     if options.black_borders:
@@ -1553,7 +1531,6 @@ def checkOptions(options):
         options.hq = False
     # KFX output create EPUB that might be can be by jhowell KFX Output Calibre plugin
     if options.format == 'KFX':
-        options.targetsize = 195
         options.format = 'EPUB'
         options.kfx = True
         options.panelview = False
@@ -1575,7 +1552,6 @@ def checkOptions(options):
             options.jpegquality = 90
         else:
             options.jpegquality = 85
-
     options.kindle_azw3 = options.iskindle and ('MOBI' in options.format or 'EPUB' in options.format)
     options.kindle_scribe_azw3 = options.profile.startswith('KS') and options.kindle_azw3
 
@@ -1691,43 +1667,9 @@ def makeBook(source, qtgui=None, job_progress=''):
     if not options.webtoon:
         cover = image.Cover(cover_path, options)
 
-    x, y = image.ProfileData.Profiles[options.profile][1]
     if options.webtoon:
+        x, y = image.ProfileData.Profiles[options.profile][1]
         comic2panel.main(['-y ' + str(y), '-x' + str(x), '-i', '-m', path], job_progress, qtgui)
-
-    options.kfx_resolution = None
-    if options.kfx:
-        original_resolutions = []
-        normalized_resolutions = []
-        for root, _, files in os.walk(os.path.join(path, "OEBPS", "Images")):
-            for file in files:
-                with Image.open(os.path.join(root, file)) as imagef:
-                    original_resolutions.append(imagef.size)
-                    size = get_contain_resolution(imagef, (x, y))
-                    normalized_resolutions.append(size)
-
-            counter = Counter(normalized_resolutions)
-
-            aspect_ratios = []
-            filtered_resolutions = []
-            for w, h in normalized_resolutions:
-                aspect_ratio = h / w
-                # page-like aspect ratios, could be improved
-                if aspect_ratio > 1.3 and aspect_ratio < 1.7:
-                    aspect_ratios.append(aspect_ratio)
-                    filtered_resolutions.append((w, h))
-
-            most_common_res, most_common_count = counter.most_common(1)[0]
-            options.kfx_resolution = most_common_res
-            if most_common_count / counter.total() > .6:
-                pass
-            #elif max(aspect_ratios) - min(aspect_ratios) < .2:
-            else:
-                # get the widest resolution
-                options.kfx_resolution = max(filtered_resolutions)
-            # else:
-            #     raise UserWarning('Aspect ratio of pages too different for KFX conversion')
-
     if options.noprocessing:
         print(f"{job_progress}Do not process image, ignore any profile or processing option")
     else:
@@ -1768,7 +1710,7 @@ def makeBook(source, qtgui=None, job_progress=''):
                 filepath.append(getOutputFilename(source, options.output, '.cbz', ' ' + str(tomeNumber)))
             else:
                 filepath.append(getOutputFilename(source, options.output, '.cbz', ''))
-            if cover and cover.smartcover:
+            if cover.smartcover:
                 cover.save_to_folder(os.path.join(tome, 'OEBPS', 'Images', 'cover.jpg'), tomeNumber, len(tomes))
             makeZIP(tome + '_comic', os.path.join(tome, "OEBPS", "Images"), job_progress)
         elif options.format == 'PDF':
@@ -1776,7 +1718,7 @@ def makeBook(source, qtgui=None, job_progress=''):
             # determine output filename based on source and tome count
             suffix = (' ' + str(tomeNumber)) if len(tomes) > 1 else ''
             output_file = getOutputFilename(source, options.output, '.pdf', suffix)
-            if cover and cover.smartcover:
+            if cover.smartcover:
                 cover.save_to_folder(os.path.join(tome, 'OEBPS', 'Images', 'cover.jpg'), tomeNumber, len(tomes))
             # use optimized buildPDF logic with streaming and compression
             output_pdf = buildPDF(tome, options.title, job_progress, None, output_file)

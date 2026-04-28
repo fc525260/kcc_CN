@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Metadata editor</string>
+   <string>元数据编辑器</string>
   </property>
   <property name="windowIcon">
    <iconset resource="KCC.qrc">
@@ -45,7 +45,7 @@
       <item row="0" column="0">
        <widget class="QLabel" name="label_1">
         <property name="text">
-         <string>Series:</string>
+         <string>系列:</string>
         </property>
        </widget>
       </item>
@@ -55,7 +55,7 @@
       <item row="1" column="0">
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Volume:</string>
+         <string>卷:</string>
         </property>
        </widget>
       </item>
@@ -65,7 +65,7 @@
       <item row="3" column="0">
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Number:</string>
+         <string>编号:</string>
         </property>
        </widget>
       </item>
@@ -75,7 +75,7 @@
       <item row="4" column="0">
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Writer:</string>
+         <string>作者:</string>
         </property>
        </widget>
       </item>
@@ -85,7 +85,7 @@
       <item row="5" column="0">
        <widget class="QLabel" name="label_5">
         <property name="text">
-         <string>Penciller:</string>
+         <string>画稿师:</string>
         </property>
        </widget>
       </item>
@@ -95,7 +95,7 @@
       <item row="6" column="0">
        <widget class="QLabel" name="label_6">
         <property name="text">
-         <string>Inker:</string>
+         <string>描线师:</string>
         </property>
        </widget>
       </item>
@@ -105,7 +105,7 @@
       <item row="7" column="0">
        <widget class="QLabel" name="label_7">
         <property name="text">
-         <string>Colorist:</string>
+         <string>上色师:</string>
         </property>
        </widget>
       </item>
@@ -115,7 +115,7 @@
       <item row="2" column="0">
        <widget class="QLabel" name="label_8">
         <property name="text">
-         <string>Title:</string>
+         <string>标题:</string>
         </property>
        </widget>
       </item>
@@ -162,7 +162,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Save</string>
+         <string>保存</string>
         </property>
         <property name="icon">
          <iconset resource="KCC.qrc">
@@ -179,7 +179,7 @@
          </size>
         </property>
         <property name="text">
-         <string>Cancel</string>
+         <string>取消</string>
         </property>
         <property name="icon">
          <iconset resource="KCC.qrc">

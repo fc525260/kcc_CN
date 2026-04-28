@@ -46,7 +46,7 @@
           <number>300</number>
          </property>
          <property name="singleStep">
-          <number>1</number>
+          <number>5</number>
          </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
@@ -75,17 +75,17 @@
        <item row="1" column="0">
         <widget class="QLabel" name="preserveMarginLabel">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;After calculating the cropping boundaries, &amp;quot;back up&amp;quot; a specified percentage amount.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;计算剪切边界后，向后保留指定百分比的边距。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Preserve Margin %</string>
+          <string>保留边距%</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="croppingPowerLabel">
          <property name="text">
-          <string>Cropping power:</string>
+          <string>剪切强度:</string>
          </property>
         </widget>
        </item>
@@ -140,7 +140,7 @@
        <item>
         <widget class="QLabel" name="jpegQualityLabel">
          <property name="text">
-          <string>JPEG Quality:</string>
+          <string>JPEG质量:</string>
          </property>
         </widget>
        </item>
@@ -172,7 +172,7 @@
        <bool>false</bool>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Warning: chunk size greater than default may cause&lt;br/&gt;performance/battery issues, especially on older devices.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;警告：分块大小大于默认值可能导致&lt;br/&gt;性能/电池问题，特别是在旧设备上。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout_4">
        <property name="spacing">
@@ -199,7 +199,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Chunk size MB:</string>
+          <string>分块大小MB:</string>
          </property>
         </widget>
        </item>
@@ -225,7 +225,7 @@
           </sizepolicy>
          </property>
          <property name="text">
-          <string>Greater than default may cause performance issues on older ereaders.</string>
+          <string>大于默认值可能会导致旧电子书设备出现性能问题。</string>
          </property>
         </widget>
        </item>
@@ -241,7 +241,7 @@
        </size>
       </property>
       <property name="toolTip">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Double click on source to open it in metadata editor.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;双击源文件在元数据编辑器中打开。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true"/>
@@ -281,10 +281,10 @@
           </size>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Shift+Click to edit directory.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Shift+点击编辑目录。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Metadata Editor</string>
+          <string>元数据编辑器</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -301,7 +301,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Support me on Ko-fi</string>
+          <string>在Ko-fi上支持我们</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -324,7 +324,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Wiki</string>
+          <string>维基</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -346,7 +346,7 @@
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QPushButton" name="humbleButton">
+        <widget class="QPushButton" name="humbleBundleButton">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -354,7 +354,7 @@
           </size>
          </property>
          <property name="text">
-          <string>Humble Bundle Referral</string>
+          <string>Humble Bundle推广</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -396,30 +396,30 @@
        <item row="6" column="1">
         <widget class="QCheckBox" name="noRotateBox">
          <property name="toolTip">
-          <string>Do not rotate double page spreads in spread splitter option.</string>
+          <string>在跨页拆分选项中不旋转跨页。</string>
          </property>
          <property name="text">
-          <string>No rotate</string>
+          <string>不旋转</string>
          </property>
         </widget>
        </item>
        <item row="4" column="1">
         <widget class="QCheckBox" name="maximizeStrips">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - 1x4&lt;br/&gt;&lt;/span&gt;Keep format 1x4 panels strips.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - 2x2&lt;br/&gt;&lt;/span&gt;Turn 1x4 strips to 2x2 to maximize screen usage.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 1x4&lt;br/&gt;&lt;/span&gt;保持1x4的分栏条格式。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 2x2&lt;br/&gt;&lt;/span&gt;将1x4条转化为2x2以最大化屏幕使用。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>1x4 to 2x2 strips</string>
+          <string>1x4转2x2条</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
         <widget class="QCheckBox" name="rotateBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Split&lt;br/&gt;&lt;/span&gt;Double page spreads will be cut into two separate pages.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - Split and rotate&lt;br/&gt;&lt;/span&gt;Double page spreads will be displayed twice. First split and then rotated. &lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Rotate&lt;br/&gt;&lt;/span&gt;Double page spreads will be rotated.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 拆分&lt;br/&gt;&lt;/span&gt;跨页将被切分为两个单独的页面。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 拆分和旋转&lt;br/&gt;&lt;/span&gt;跨页将显示两次。先拆分再旋转。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 旋转&lt;br/&gt;&lt;/span&gt;跨页将被旋转。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Spread splitter</string>
+          <string>跨页拆分</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -432,20 +432,20 @@
           <bool>false</bool>
          </property>
          <property name="toolTip">
-          <string>Use a more compatible 8 bit PNG instead of 4 bit.</string>
+          <string>使用兼容性更好的8位PNG而不是4位。</string>
          </property>
          <property name="text">
-          <string>PNG Legacy Mode</string>
+          <string>PNG传统模式</string>
          </property>
         </widget>
        </item>
        <item row="6" column="2">
         <widget class="QCheckBox" name="interPanelCropBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Disabled&lt;br/&gt;&lt;/span&gt;Disabled&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - Horizontal&lt;br/&gt;&lt;/span&gt;Crop empty horizontal lines.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Both&lt;br/&gt;&lt;/span&gt;Crop empty horizontal and vertical lines.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 禁用&lt;br/&gt;&lt;/span&gt;禁用&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 水平&lt;br/&gt;&lt;/span&gt;剪切空白的水平线条。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 全部&lt;br/&gt;&lt;/span&gt;剪切空白的水平和垂直线条。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Inter-panel crop</string>
+          <string>分屏间剪切</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -464,10 +464,10 @@
           <enum>Qt::FocusPolicy::ClickFocus</enum>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Default Title&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;默认标题&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="placeholderText">
-          <string>Default Title</string>
+          <string>默认标题</string>
          </property>
          <property name="clearButtonEnabled">
           <bool>false</bool>
@@ -486,10 +486,10 @@
           <enum>Qt::FocusPolicy::ClickFocus</enum>
          </property>
          <property name="toolTip">
-          <string>Default Author is KCC</string>
+          <string>默认作者是KCC</string>
          </property>
          <property name="placeholderText">
-          <string>Default Author</string>
+          <string>默认作者</string>
          </property>
          <property name="clearButtonEnabled">
           <bool>false</bool>
@@ -499,40 +499,40 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="webtoonBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Enable special parsing mode for Korean Webtoons.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;启用韩国条漫特殊解析模式。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Webtoon mode</string>
+          <string>条漫模式</string>
          </property>
         </widget>
        </item>
        <item row="6" column="0">
         <widget class="QCheckBox" name="fileFusionBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Combines all selected files into a single file. (Helpful for combining chapters into volumes.)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;将所有选中的文件合并为一个文件。（有助于将章节合并为卷。）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>File Fusion</string>
+          <string>文件合并</string>
          </property>
         </widget>
        </item>
        <item row="5" column="1">
         <widget class="QCheckBox" name="deleteBox">
          <property name="toolTip">
-          <string>Delete input file(s) or directory. It's not recoverable!</string>
+          <string>删除输入文件或目录。不可恢复！</string>
          </property>
          <property name="text">
-          <string>Delete input</string>
+          <string>删除输入</string>
          </property>
         </widget>
        </item>
        <item row="2" column="2">
         <widget class="QCheckBox" name="gammaBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set a custom gamma correction.&lt;/p&gt;&lt;p&gt;1.0 is default (disabled).&lt;br/&gt;&amp;lt; 1.0 makes the image brighter.&lt;br/&gt;&amp;gt; 1.0 makes the image darker. &lt;/p&gt;&lt;p&gt;1.8 was the default in KCC 9.1.0 and earlier.&lt;/p&gt;&lt;p&gt;Use if you want to make midtones darker.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置自定义伽马校正。&lt;/p&gt;&lt;p&gt;1.0为默认（禁用）。&lt;br/&gt;&amp;lt; 1.0使图像更亮。&lt;br/&gt;&amp;gt; 1.0使图像更暗。&lt;/p&gt;&lt;p&gt;1.8是KCC 9.1.0及更早版本的默认值。&lt;/p&gt;&lt;p&gt;当文本是黑色但图片是灰色时，使用极端黑场会有所帮助。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Custom gamma</string>
+          <string>自定义伽马</string>
          </property>
         </widget>
        </item>
@@ -542,75 +542,74 @@
           <bool>false</bool>
          </property>
          <property name="toolTip">
-          <string>Don't quantize PNG images to 16 colors (4 bit)
+          <string>不将PNG图像量化为16色（4位）。
 
-This will double file size but preserve all 256 colors (8 bit).
+这会使文件大小翻倍，但会保留全部256色（8位）。
 
-Eink only has 16 shades of gray so you probably don't want this.</string>
+电子墨水屏只有16级灰度，所以您可能不需要这个。</string>
          </property>
          <property name="text">
-          <string>No Quantize</string>
+          <string>不量化</string>
          </property>
         </widget>
        </item>
        <item row="7" column="2">
         <widget class="QCheckBox" name="eraseRainbowBox">
          <property name="toolTip">
-          <string>Erase rainbow effect on color eink screen by attenuating interfering frequencies</string>
+          <string>通过衰减干扰频率来消除彩色电子墨水屏幕上的彩虹效果</string>
          </property>
          <property name="text">
-          <string>Rainbow eraser</string>
+          <string>彩虹消除</string>
          </property>
         </widget>
        </item>
        <item row="9" column="1">
         <widget class="QCheckBox" name="coverFillBox">
          <property name="toolTip">
-          <string>Resize cover to exact device resolution by center-cropping to aspect ratio first.
-May crop top/bottom or left/right depending on source aspect ratio. Not implemented for Kindle Scribe.</string>
+          <string>通过先居中和裁剪到宽高比，将封面调整到确切的设备分辨率。根据源宽高比可能会裁剪顶部/底部或左侧/右侧。Kindle Scribe未实现此功能。</string>
          </property>
          <property name="text">
-          <string>Cover Fill</string>
+          <string>封面填充</string>
          </property>
         </widget>
        </item>
        <item row="10" column="1">
         <widget class="QCheckBox" name="rotateRightBox">
          <property name="toolTip">
-          <string>Rotate 2 page spreads in opposite direction than normal.</string>
+          <string>以与正常相反的方向旋转两页跨页。</string>
          </property>
          <property name="text">
-          <string>Rotate Right</string>
+          <string>向右旋转</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QCheckBox" name="mangaBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Enable right-to-left reading.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;启用从右到左阅读。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Right-to-left (manga)</string>
+          <string>从右到左（漫画）</string>
          </property>
         </widget>
        </item>
        <item row="5" column="0">
         <widget class="QCheckBox" name="spreadShiftBox">
          <property name="toolTip">
-          <string>Shift first page to opposite side in landscape for two page spread alignment</string>
+          <string>在横屏中将第一页移到另一侧，以实现两页跨页对齐</string>
          </property>
          <property name="text">
-          <string>Spread shift</string>
+          <string>跨页移位</string>
          </property>
         </widget>
        </item>
        <item row="4" column="2">
         <widget class="QCheckBox" name="croppingBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Disabled&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Disabled&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - Margins&lt;br/&gt;&lt;/span&gt;Margins&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Margins + page numbers&lt;br/&gt;&lt;/span&gt;Margins +page numbers&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 禁用&lt;/span&gt;&lt;/p&gt;&lt;p&gt;禁用&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 边距&lt;br/&gt;&lt;/span&gt;边距&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 边距+页码&lt;br/&gt;&lt;/span&gt;边距+页码&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Cropping mode</string>
+          <string>剪切模式</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -620,34 +619,34 @@ May crop top/bottom or left/right depending on source aspect ratio. Not implemen
        <item row="8" column="0">
         <widget class="QCheckBox" name="jpegQualityBox">
          <property name="toolTip">
-          <string>The JPEG quality, on a scale from 0 (worst) to 95 (best). 
+          <string>JPEG质量，范围从0（最差）到95（最佳）。
 
-Default is 85 for most devices besides Kindle Scribe and Colorsoft, which are 90.
+默认大多数设备为85，但Kindle Scribe和Colorsoft设备为90。
 
-Higher values are larger and higher quality, and may resolve blank page issues.</string>
+更高的值更大且质量更高，并可能解决空白页问题。</string>
          </property>
          <property name="text">
-          <string>Custom JPEG Quality</string>
+          <string>自定义JPEG质量</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
         <widget class="QCheckBox" name="outputSplit">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Automatic mode&lt;br/&gt;&lt;/span&gt;The output will be split automatically.&lt;/p&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Volume mode&lt;br/&gt;&lt;/span&gt;Every subdirectory will be considered as a separate volume.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 自动模式&lt;br/&gt;&lt;/span&gt;输出将自动分割。&lt;/p&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 分卷模式&lt;br/&gt;&lt;/span&gt;每个子目录将被视为单独的卷。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Output split</string>
+          <string>输出分割</string>
          </property>
         </widget>
        </item>
        <item row="7" column="0">
         <widget class="QCheckBox" name="metadataTitleBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Don't use metadata Title&lt;br/&gt;&lt;/span&gt;Write default title.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - Add metadata Title to the default schema&lt;br/&gt;&lt;/span&gt;Write default title with Title from ComicInfo.xml or other embedded metadata.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Use metadata Title only&lt;br/&gt;&lt;/span&gt;Write Title from ComicInfo.xml or other embedded metadata.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 不使用元数据标题&lt;br/&gt;&lt;/span&gt;编写默认标题。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 将元数据标题添加到默认格式&lt;br/&gt;&lt;/span&gt;用来自ComicInfo.xml或其他嵌入元数据的标题编写默认标题。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 仅使用元数据标题&lt;br/&gt;&lt;/span&gt;仅使用来自ComicInfo.xml或其他嵌入元数据的标题。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Metadata Title</string>
+          <string>元数据标题</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -657,27 +656,27 @@ Higher values are larger and higher quality, and may resolve blank page issues.<
        <item row="11" column="1">
         <widget class="QCheckBox" name="noSmartCoverCropBox">
          <property name="toolTip">
-          <string>Disable attempt to crop main cover from wide image.</string>
+          <string>禁用尝试从宽幅图像中裁剪主封面。</string>
          </property>
          <property name="text">
-          <string>No Smart Cover Crop</string>
+          <string>禁用智能封面裁剪</string>
          </property>
         </widget>
        </item>
        <item row="8" column="1">
         <widget class="QCheckBox" name="rotateFirstBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When the spread splitter option is partially checked,&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Rotate Last&lt;br/&gt;&lt;/span&gt;Put the rotated 2 page spread after the split spreads.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Rotate First&lt;br/&gt;&lt;/span&gt;Put the rotated 2 page spread before the split spreads.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;当跨页拆分选项被部分勾选时，&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 最后旋转&lt;br/&gt;&lt;/span&gt;将旋转后的两页跨页放在拆分页面之后。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 先旋转&lt;br/&gt;&lt;/span&gt;将旋转后的两页跨页放在拆分页面之前。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Rotate First</string>
+          <string>先旋转</string>
          </property>
         </widget>
        </item>
        <item row="4" column="0">
         <widget class="QCheckBox" name="mozJpegBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - JPEG&lt;br/&gt;&lt;/span&gt;Use JPEG files&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - force PNG&lt;br/&gt;&lt;/span&gt;Create PNG files instead JPEG for black and white images&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - mozJpeg&lt;br/&gt;&lt;/span&gt;10-20% smaller JPEG file, with the same image quality, but processing time multiplied by 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - JPEG&lt;br/&gt;&lt;/span&gt;使用JPEG文件&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 强制PNG&lt;br/&gt;&lt;/span&gt;为黑白图像创建PNG文件而不是JPEG&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - mozJpeg&lt;br/&gt;&lt;/span&gt;文件更小10-20%，图像质量相同，但处理时间翻倍&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
           <string>JPEG/PNG/mozJpeg</string>
@@ -690,10 +689,10 @@ Higher values are larger and higher quality, and may resolve blank page issues.<
        <item row="8" column="2">
         <widget class="QCheckBox" name="autoLevelBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;By default, KCC maps the darkest pixel value to pure black (the black point.)&lt;/p&gt;&lt;p&gt;Extreme black point sets the black point to be the most common dark pixel value.&lt;/p&gt;&lt;p&gt;Useful when text is black but artwork is gray.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;默认情况下，KCC将最暗像素值映射为纯黑（黑场）。&lt;/p&gt;&lt;p&gt;极端黑场将黑场设置为最常见的暗像素值。&lt;/p&gt;&lt;p&gt;当文本是黑色但图片是灰色时很有用。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Extreme Black Point</string>
+          <string>极端黑场</string>
          </property>
         </widget>
        </item>
@@ -703,20 +702,20 @@ Higher values are larger and higher quality, and may resolve blank page issues.<
           <bool>false</bool>
          </property>
          <property name="toolTip">
-          <string>Force full color images to be saved in lossless PNG format, dramatically increases the filesize.</string>
+          <string>强制全彩色图像以无损PNG格式保存，大幅增加文件大小。</string>
          </property>
          <property name="text">
-          <string>Force PNG RGB</string>
+          <string>强制PNG RGB</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
         <widget class="QCheckBox" name="upscaleBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Nothing&lt;br/&gt;&lt;/span&gt;Images smaller than device resolution will not be resized.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - Stretching&lt;br/&gt;&lt;/span&gt;Images smaller than device resolution will be resized. Aspect ratio will be not preserved.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Upscaling&lt;br/&gt;&lt;/span&gt;Images smaller than device resolution will be resized. Aspect ratio will be preserved.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 无&lt;br/&gt;&lt;/span&gt;小于设备分辨率的图像将不会调整大小。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 拉伸&lt;br/&gt;&lt;/span&gt;小于设备分辨率的图像将被调整大小。宽高比将不会保留。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 放大&lt;br/&gt;&lt;/span&gt;小于设备分辨率的图像将被调整大小。宽高比将被保留。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Stretch/Upscale</string>
+          <string>拉伸/放大</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -726,10 +725,10 @@ Higher values are larger and higher quality, and may resolve blank page issues.<
        <item row="3" column="0">
         <widget class="QCheckBox" name="borderBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Autodetection&lt;br/&gt;&lt;/span&gt;The color of margins fill will be detected automatically.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - White&lt;br/&gt;&lt;/span&gt;Margins will be untouched.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Black&lt;br/&gt;&lt;/span&gt;Margins will be filled with black color.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 自动检测&lt;br/&gt;&lt;/span&gt;边距填充颜色将自动检测。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 白色&lt;br/&gt;&lt;/span&gt;边距将不会被触碰。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 黑色&lt;br/&gt;&lt;/span&gt;边距将用黑色填充。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>W/B margins</string>
+          <string>白/黑边距</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -739,10 +738,10 @@ Higher values are larger and higher quality, and may resolve blank page issues.<
        <item row="1" column="2">
         <widget class="QCheckBox" name="qualityBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - 4 panels&lt;br/&gt;&lt;/span&gt;Zoom each corner separately.&lt;/p&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - 2 panels&lt;br/&gt;&lt;/span&gt;Zoom only the top and bottom of the page.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - 4 high-quality panels&lt;br/&gt;&lt;/span&gt;Zoom each corner separately. Try to increase the quality of magnification. Check wiki for more details.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 4个分屏&lt;br/&gt;&lt;/span&gt;分别放大每个角落。&lt;/p&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 2个分屏&lt;br/&gt;&lt;/span&gt;仅放大页面顶部和底部。&lt;/p&gt;&lt;p style='white-space:pre'&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 4个高质量分屏&lt;br/&gt;&lt;/span&gt;分别放大每个角落。尝试提高放大质量。查看维基了解更多详情。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Panel View 4/2/HQ</string>
+          <string>分屏视图 4/2/高质量</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -752,44 +751,44 @@ Higher values are larger and higher quality, and may resolve blank page issues.<
        <item row="9" column="0">
         <widget class="QCheckBox" name="pdfExtractBox">
          <property name="toolTip">
-          <string>Use the PDF image extraction method from KCC 8 and earlier.
+          <string>使用KCC 8及更早版本中的PDF图像提取方法。
 
-Useful for really weird PDFs.</string>
+对于非常奇怪的PDF很有用。</string>
          </property>
          <property name="text">
-          <string>PDF Legacy Extract</string>
+          <string>PDF传统提取</string>
          </property>
         </widget>
        </item>
        <item row="3" column="2">
         <widget class="QCheckBox" name="colorBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Disable conversion to grayscale.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;禁用转换为灰度。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Color mode</string>
+          <string>彩色模式</string>
          </property>
         </widget>
        </item>
        <item row="10" column="0">
         <widget class="QCheckBox" name="pdfWidthBox">
          <property name="toolTip">
-          <string>Render vector PDFs to device width instead of height.
+          <string>将矢量PDF渲染到设备宽度而不是高度。
 
-Useful if you plan to crop a little off the top and bottom to fill screen.</string>
+如果您计划裁剪顶部和底部的一点以填充屏幕，这会很有用。</string>
          </property>
          <property name="text">
-          <string>PDF Width Render</string>
+          <string>PDF宽度渲染</string>
          </property>
         </widget>
        </item>
        <item row="5" column="2">
         <widget class="QCheckBox" name="disableProcessingBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Do not process any image, ignore profile and processing options.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;不处理任何图像，忽略配置文件和处理选项。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Disable processing</string>
+          <string>禁用处理</string>
          </property>
         </widget>
        </item>
@@ -817,10 +816,10 @@ Useful if you plan to crop a little off the top and bottom to fill screen.</stri
              </sizepolicy>
             </property>
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - next to source&lt;br/&gt;&lt;/span&gt;Place output files next to source files&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - folder next to source&lt;br/&gt;&lt;/span&gt;Place output files in a folder next to source files&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Custom&lt;br/&gt;&lt;/span&gt;Place output files in custom directory specified by right button&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 源文件旁边&lt;br/&gt;&lt;/span&gt;将输出文件放在源文件旁边&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 源文件旁边的文件夹&lt;br/&gt;&lt;/span&gt;将输出文件放在源文件旁边的文件夹中&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 自定义&lt;br/&gt;&lt;/span&gt;将输出文件放在右侧按钮指定的自定义目录中&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="text">
-             <string>Output Folder</string>
+             <string>输出目录</string>
             </property>
             <property name="tristate">
              <bool>true</bool>
@@ -836,7 +835,7 @@ Useful if you plan to crop a little off the top and bottom to fill screen.</stri
              </size>
             </property>
             <property name="toolTip">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use this to select the default output directory.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;使用此按钮选择默认输出目录。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="text">
              <string/>
@@ -853,20 +852,20 @@ Useful if you plan to crop a little off the top and bottom to fill screen.</stri
        <item row="7" column="1">
         <widget class="QCheckBox" name="chunkSizeCheckBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline;&quot;&gt;Unchecked&lt;br/&gt;&lt;/span&gt;Maximal output file size is 100 MB for Webtoon, 400 MB for others before split occurs.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline;&quot;&gt;Checked&lt;/span&gt;&lt;br/&gt;Output file size specified in &amp;quot;Chunk size MB&amp;quot; before split occurs.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline;&quot;&gt;未勾选&lt;br/&gt;&lt;/span&gt;条漫的最大输出文件大小为100MB，其他情况在拆分发生前为400MB。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; text-decoration: underline;&quot;&gt;已勾选&lt;/span&gt;&lt;br/&gt;&lt;p&gt;&lt;span style="font-weight:600; text-decoration: underline;"&gt;&lt;/span&gt;在"分块大小MB"中指定输出文件大小，然后发生拆分。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Chunk size</string>
+          <string>分块大小</string>
          </property>
         </widget>
        </item>
        <item row="9" column="2">
         <widget class="QCheckBox" name="autocontrastBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - BW only&lt;br/&gt;&lt;/span&gt;Only autocontrast bw pages. Ignored for pages where near blacks or whites don't exist.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Indeterminate - Disabled&lt;br/&gt;&lt;/span&gt;Disable autocontrast&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - BW and Color&lt;br/&gt;&lt;/span&gt;BW and color images will be autocontrasted. Ignored for pages where near blacks or whites don't exist.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 仅黑白&lt;br/&gt;&lt;/span&gt;仅对黑白页面自动对比度。对于没有接近黑白的页面将被忽略。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;部分勾选 - 禁用&lt;br/&gt;&lt;/span&gt;禁用自动对比度&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 黑白和彩色&lt;br/&gt;&lt;/span&gt;黑白和彩色图像将自动对比度。对于没有接近黑白的页面将被忽略。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Custom Autocontrast</string>
+          <string>自动对比度</string>
          </property>
          <property name="tristate">
           <bool>true</bool>
@@ -876,22 +875,22 @@ Useful if you plan to crop a little off the top and bottom to fill screen.</stri
        <item row="12" column="0">
         <widget class="QCheckBox" name="webpBox">
          <property name="toolTip">
-          <string>Replace JPG with lossy WebP and PNG with lossless WebP. This includes the JPG Quality.
+          <string>用有损WebP替换JPEG，用无损WebP替换PNG。这包括JPEG质量。
 
-Ignored for Kindle EPUB/MOBI and all PDF.</string>
+对于Kindle EPUB/MOBI和所有PDF格式将被忽略。</string>
          </property>
          <property name="text">
-          <string>WebP (experimental)</string>
+          <string>WebP（实验性）</string>
          </property>
         </widget>
        </item>
        <item row="12" column="1">
         <widget class="QCheckBox" name="tempDirBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Unchecked - Main Drive&lt;br/&gt;&lt;/span&gt;Use dedicated temporary directory on main OS drive.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;Checked - Source File Drive&lt;br/&gt;&lt;/span&gt;Create temporary file directory on source file drive.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;未勾选 - 主驱动器&lt;br/&gt;&lt;/span&gt;在主操作系统驱动器上使用专用临时目录。&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600; text-decoration: underline;&quot;&gt;已勾选 - 源文件驱动器&lt;br/&gt;&lt;/span&gt;在源文件驱动器上创建临时文件目录。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Temp Directory</string>
+          <string>临时目录</string>
          </property>
         </widget>
        </item>
@@ -933,10 +932,10 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </font>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Shift+Click to select the output directory for this list.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Shift+点击选择此列表的输出目录。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Convert</string>
+          <string>转换</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -953,7 +952,7 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </size>
          </property>
          <property name="text">
-          <string>Clear list</string>
+          <string>清空列表</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -970,7 +969,7 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </size>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Target device.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;目标设备。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -983,10 +982,10 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </size>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Add CBR, CBZ, CB7 or PDF file to queue.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;将CBR、CBZ、CB7或PDF文件添加到队列。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Add input file(s)</string>
+          <string>添加输入文件</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -1003,10 +1002,10 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </sizepolicy>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Add directory containing JPG, PNG or GIF files to queue.&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;CBR, CBZ and CB7 files inside will not be processed!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;将包含JPG、PNG或GIF文件的目录添加到队列。&lt;br/&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;内部的CBR、CBZ和CB7文件不会被处理！&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Add input folder(s)</string>
+          <string>添加输入目录</string>
          </property>
          <property name="icon">
           <iconset resource="KCC.qrc">
@@ -1023,7 +1022,7 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </size>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Output format.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;输出格式。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
         </widget>
        </item>
@@ -1057,7 +1056,7 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
        <item>
         <widget class="QLabel" name="gammaLabel">
          <property name="text">
-          <string>Gamma: Auto</string>
+          <string>伽马值：自动</string>
          </property>
         </widget>
        </item>
@@ -1104,17 +1103,17 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </sizepolicy>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Resolution of the target device.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;目标设备的分辨率。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Custom height:</string>
+          <string>自定义高度:</string>
          </property>
         </widget>
        </item>
        <item row="0" column="1">
         <widget class="QSpinBox" name="widthBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Resolution of the target device.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;目标设备的分辨率。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="maximum">
           <number>6000</number>
@@ -1130,17 +1129,17 @@ Ignored for Kindle EPUB/MOBI and all PDF.</string>
           </sizepolicy>
          </property>
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Resolution of the target device.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;目标设备的分辨率。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="text">
-          <string>Custom width:</string>
+          <string>自定义宽度:</string>
          </property>
         </widget>
        </item>
        <item row="0" column="3">
         <widget class="QSpinBox" name="heightBox">
          <property name="toolTip">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;Resolution of the target device.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style='white-space:pre'&gt;目标设备的分辨率。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
          <property name="maximum">
           <number>8000</number>
