@@ -1,6 +1,8 @@
 <img src="header.jpg" alt="Header Image" width="400">
 
 # Kindle Comic Converter (KCC) - 中文版本
+原项目地址：[https://github.com/ciromattia/kcc](https://github.com/ciromattia/kcc)
+因为不太懂github，断开了复刻链接，但因为我应该不会更新，所以无所谓了。
 
 ## 简介
 
